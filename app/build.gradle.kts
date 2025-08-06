@@ -55,6 +55,7 @@ dependencies {
     testImplementation(libs.junit)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.koin.android)
+    implementation(libs.lottie.compose)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     androidTestImplementation(libs.androidx.junit)
