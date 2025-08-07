@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.testemercadobitcoin.data.ExchangeResponse
 import br.com.testemercadobitcoin.remote.SafeResponse
+import br.com.testemercadobitcoin.ui.list.model.ExchangeItem
 import br.com.testemercadobitcoin.ui.list.usecase.ListExchangesUseCase
 import kotlinx.coroutines.launch
 
@@ -14,8 +14,8 @@ class ListExchangesViewModel(private val listExchangesUseCase: ListExchangesUseC
     val errorState: LiveData<String> = _errorState
     private val _loadingState = MutableLiveData<Boolean>()
     val loadingState: LiveData<Boolean> = _loadingState
-    private val _list = MutableLiveData<List<ExchangeResponse>>()
-    val list: LiveData<List<ExchangeResponse>> = _list
+    private val _list = MutableLiveData<List<ExchangeItem>>()
+    val list: LiveData<List<ExchangeItem>> = _list
 
     fun getListExchanges() {
         _loadingState.value = true

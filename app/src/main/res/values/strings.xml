@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">TesteMercadoBitcoin</string>
+
+    <string name="item_name">Name: </string>
+    <string name="volume_day">Volume Day: </string>
+    <string name="item_exchange_id">Exchange ID: </string>
+    <string name="titles_exchanges">Exchanges</string>
+    <string name="titles_details_exchange">Detalhes Exchanges</string>
+    <string name="back">Voltar</string>
+    <string name="label_detail_website">Website:</string>
+    <string name="label_data_quote_start">Início da cotação de dados:</string>
+    <string name="label_data_quote_end">Fim da cotação de dados:</string>
+    <string name="label_data_orderbook_start">Início da cotação de ordem:</string>
+    <string name="label_data_orderbook_end">Fim da cotação de ordem:</string>
+    <string name="label_data_trade_start">Início da cotação de negociação:</string>
+    <string name="label_data_trade_end">Fim da cotação de negociação:</string>
+    <string name="label_data_symbols_count">Contagem de símbolos:</string>
+    <string name="label_volume_one_hour_usd">Volume Uma Hora UDS:</string>
+    <string name="label_volume_one_day_usd">Volume Um Dia UDS:</string>
+    <string name="label_volume_one_month_usd">Volume Um Mês UDS:</string>
+    <string name="label_rank">Posição:</string>
+    <string name="integration_status">Status Integração:</string>
+    <string name="label_metric_id">Id Métrica(s):</string>
+    <string name="title_alert_exit_app">Sair do aplicativo?</string>
+    <string name="message_alert_exit_app">Tem certeza que deseja sair?</string>
+    <string name="button_confirm_exit_app">Sim</string>
+    <string name="button_cancel_exit_app">Não</string>
 </resources>
