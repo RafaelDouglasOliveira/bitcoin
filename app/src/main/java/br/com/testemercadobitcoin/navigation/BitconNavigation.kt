@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.com.testemercadobitcoin.ui.detail.DetailsExchangeScreen
+import br.com.testemercadobitcoin.ui.list.ListExchangesScreen
 import br.com.testemercadobitcoin.ui.splash.SplashScreen
 
 object NavRoutes {
@@ -25,11 +27,11 @@ fun BitcoinNavigation() {
         }
 
         composable(NavRoutes.LIST_EXCHANGES) {
-
+            ListExchangesScreen(navController)
         }
 
         composable(NavRoutes.DETAILS_EXCHANGE) {
-
+            DetailsExchangeScreen(navController)
         }
     }
 }
