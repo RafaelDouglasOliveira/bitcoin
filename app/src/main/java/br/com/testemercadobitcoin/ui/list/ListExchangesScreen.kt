@@ -10,10 +10,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,14 +28,15 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import br.com.testemercadobitcoin.R
 import br.com.testemercadobitcoin.navigation.NavRoutes
+import br.com.testemercadobitcoin.ui.components.CustomTooBar
 import br.com.testemercadobitcoin.ui.components.ExchangeItem
 import br.com.testemercadobitcoin.ui.components.LoadingCustom
 import br.com.testemercadobitcoin.ui.list.viewmodel.ListExchangesViewModel
 import br.com.testemercadobitcoin.utils.UtilsColor
+import br.com.testemercadobitcoin.utils.UtilsDimen
 import org.koin.androidx.compose.koinViewModel
 import kotlin.system.exitProcess
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ListExchangesScreen(navController: NavController) {
 
@@ -57,16 +56,12 @@ fun ListExchangesScreen(navController: NavController) {
     }
 
     Scaffold(
+        containerColor = UtilsColor.white,
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = stringResource(R.string.titles_exchanges),
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+            CustomTooBar(
+                title = stringResource(R.string.titles_exchanges),
+                isBack = false
             )
-
         }, content = { innerPadding ->
             Column(
                 modifier = Modifier
@@ -97,7 +92,7 @@ fun ListExchangesScreen(navController: NavController) {
                 if (errorState.value != null) {
                     Text(
                         text = errorState.value.toString(),
-                        fontSize = 14.sp,
+                        fontSize = UtilsDimen.Sp.fourteen_sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.DarkGray
                     )
@@ -111,10 +106,16 @@ fun ListExchangesScreen(navController: NavController) {
                 showExitDialog = false
             },
             title = {
-                Text(text = stringResource(R.string.title_alert_exit_app))
+                Text(
+                    fontSize = UtilsDimen.Sp.sixteen_sp,
+                    text = stringResource(R.string.title_alert_exit_app)
+                )
             },
             text = {
-                Text(text = stringResource(R.string.message_alert_exit_app))
+                Text(
+                    fontSize = UtilsDimen.Sp.fourteen_sp,
+                    text = stringResource(R.string.message_alert_exit_app)
+                )
             },
             confirmButton = {
                 Button(
@@ -125,7 +126,9 @@ fun ListExchangesScreen(navController: NavController) {
                         containerColor = UtilsColor.orange_500
                     )
                 ) {
-                    Text(stringResource(R.string.button_confirm_exit_app))
+                    Text(
+                        stringResource(R.string.button_confirm_exit_app)
+                    )
                 }
             },
             dismissButton = {
