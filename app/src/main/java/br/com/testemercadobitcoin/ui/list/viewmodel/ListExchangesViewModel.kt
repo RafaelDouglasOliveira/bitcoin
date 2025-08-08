@@ -27,7 +27,7 @@ class ListExchangesViewModel(private val listExchangesUseCase: ListExchangesUseC
                 }
 
                 is SafeResponse.GenericError -> {
-                    _errorState.value = result.error.toString()
+                    _errorState.value = messageErrorGeneric(result.code)
                     _loadingState.value = false
                 }
 
@@ -36,7 +36,16 @@ class ListExchangesViewModel(private val listExchangesUseCase: ListExchangesUseC
                     _loadingState.value = false
                 }
             }
-
         }
+    }
+
+
+}
+
+private fun messageErrorGeneric(errorCode: Int?): String {
+    return when (errorCode) {
+        404 -> "Erro ao buscar dados."
+        503 -> "Serviço indisponível."
+        else -> "Ocorreu um erro inesperado."
     }
 }

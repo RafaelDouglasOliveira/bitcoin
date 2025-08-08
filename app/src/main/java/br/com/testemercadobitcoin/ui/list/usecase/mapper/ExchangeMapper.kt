@@ -1,6 +1,6 @@
 package br.com.testemercadobitcoin.ui.list.usecase.mapper
 
-import br.com.testemercadobitcoin.data.ExchangeResponse
+import br.com.testemercadobitcoin.remote.repository.data.ExchangeResponse
 import br.com.testemercadobitcoin.ui.list.model.ExchangeItem
 import br.com.testemercadobitcoin.utils.Constants.DEFAULT_VALUE
 

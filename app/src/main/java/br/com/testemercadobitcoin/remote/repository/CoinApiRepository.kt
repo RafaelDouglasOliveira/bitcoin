@@ -8,9 +8,8 @@ import br.com.testemercadobitcoin.ui.list.usecase.mapper.ExchangeMapper.toExchan
 
 class CoinApiRepository(private val coinApi: CoinApi) {
     suspend fun getListExchanges(): SafeResponse<List<ExchangeItem>> {
-        val result = coinApi.getExchanges().toExchange()
         return safeRequest {
-           result
+            coinApi.getExchanges().toExchange()
         }
     }
 }
