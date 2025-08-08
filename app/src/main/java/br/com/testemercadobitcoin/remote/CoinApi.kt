@@ -1,6 +1,6 @@
 package br.com.testemercadobitcoin.remote
 
-import br.com.testemercadobitcoin.data.ExchangeResponse
+import br.com.testemercadobitcoin.remote.repository.data.ExchangeResponse
 import retrofit2.http.GET
 
 interface CoinApi {

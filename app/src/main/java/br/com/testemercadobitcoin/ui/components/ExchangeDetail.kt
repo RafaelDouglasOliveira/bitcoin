@@ -21,14 +21,18 @@ import androidx.compose.ui.unit.sp
 import br.com.testemercadobitcoin.R
 import br.com.testemercadobitcoin.ui.list.model.ExchangeItem
 import br.com.testemercadobitcoin.utils.UtilsColor
+import br.com.testemercadobitcoin.utils.UtilsDimen
 import br.com.testemercadobitcoin.utils.formatDate
 
 @Composable
 fun ExchangeDetail(item: ExchangeItem) {
     Card(
-        modifier = Modifier.padding(16.dp),
-        border = BorderStroke(1.dp, UtilsColor.orange_500),
-        shape = RoundedCornerShape(4.dp),
+        modifier = Modifier.padding(UtilsDimen.Dp.sixteen_dp),
+        border = BorderStroke(
+            UtilsDimen.Dp.one_dp,
+            UtilsColor.orange_500
+        ),
+        shape = RoundedCornerShape(UtilsDimen.Dp.eight_dp),
         colors = CardDefaults.cardColors(
             containerColor = UtilsColor.gray_50
         )
@@ -95,25 +99,31 @@ fun ExchangeDetail(item: ExchangeItem) {
                 ScreenMetrics(item.listMetricId)
             }
         }
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.width(UtilsDimen.Dp.eight_dp))
     }
 }
 
 @Composable
 fun LabelItemDetail(label: String, value: String) {
     Row(
-        modifier = Modifier.fillMaxWidth()
-            .padding(start = 16.dp, top = 8.dp , bottom = 8.dp)){
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                start = UtilsDimen.Dp.sixteen_dp,
+                top = UtilsDimen.Dp.eight_dp,
+                bottom = UtilsDimen.Dp.eight_dp
+            )
+    ) {
         Text(
             text = label,
-            fontSize = 14.sp,
+            fontSize = UtilsDimen.Sp.fourteen_sp,
             fontWeight = FontWeight.Bold,
             color = UtilsColor.orange_700
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.width(UtilsDimen.Dp.eight_dp))
         Text(
             text = value,
-            fontSize = 14.sp,
+            fontSize = UtilsDimen.Sp.fourteen_sp,
             fontWeight = FontWeight.Normal,
             color = Color.Gray
         )
@@ -123,17 +133,20 @@ fun LabelItemDetail(label: String, value: String) {
 @Composable
 fun ScreenMetrics(listMetricId: List<String>) {
     Text(
-        modifier = Modifier.padding(16.dp),
+        modifier = Modifier.padding(UtilsDimen.Dp.sixteen_dp),
         text = stringResource(R.string.label_metric_id),
-        fontSize = 14.sp,
+        fontSize = UtilsDimen.Sp.fourteen_sp,
         fontWeight = FontWeight.Bold,
         color = UtilsColor.orange_700
     )
     listMetricId.forEach {
         Text(
-            modifier = Modifier.padding(start = 16.dp, bottom = 4.dp),
+            modifier = Modifier.padding(
+                start = UtilsDimen.Dp.sixteen_dp,
+                bottom = UtilsDimen.Dp.four_dp
+            ),
             text = it,
-            fontSize = 14.sp,
+            fontSize = UtilsDimen.Sp.fourteen_sp,
             fontWeight = FontWeight.Normal,
             color = Color.Gray
         )

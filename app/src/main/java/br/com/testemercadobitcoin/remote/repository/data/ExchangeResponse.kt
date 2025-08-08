@@ -1,4 +1,4 @@
-package br.com.testemercadobitcoin.data
+package br.com.testemercadobitcoin.remote.repository.data
 
 import com.google.gson.annotations.SerializedName
 
