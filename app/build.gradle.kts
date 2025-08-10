@@ -12,6 +12,7 @@ android {
     defaultConfig {
         applicationId = "br.com.testemercadobitcoin"
         minSdk = 24
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -37,10 +38,21 @@ android {
     buildFeatures {
         compose = true
     }
+
+    // Bloco para evitar conflito de recursos
+    packagingOptions {
+        resources {
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/LICENSE-notice.md"
+            excludes += "META-INF/AL2.0"
+            excludes += "META-INF/LGPL2.1"
+            excludes += "META-INF/*.md"
+            excludes += "META-INF/*.txt"
+        }
+    }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -54,22 +66,37 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
     implementation(libs.androidx.runtime.livedata)
-    testImplementation(libs.junit)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     implementation(libs.lottie.compose)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.navigation.testing)
+    implementation(libs.androidx.junit.ktx)
+    //JUnit e mockk
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.koin.test)
+
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Testes de ui compose
+    testImplementation(libs.androidx.navigation.testing)
+    testImplementation(libs.androidx.navigation.compose)
+    testImplementation(libs.androidx.ui.test.junit4)
+
+    // Testes instrumentados
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation (libs.mockk)
-    testImplementation (libs.androidx.core.testing)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.mockito.kotlin)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.testng)
+    androidTestImplementation(libs.mockk.android)
+    androidTestImplementation(libs.koin.test)
 }

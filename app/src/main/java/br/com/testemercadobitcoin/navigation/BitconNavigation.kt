@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import br.com.testemercadobitcoin.ui.detail.DetailsExchangeScreen
 import br.com.testemercadobitcoin.ui.list.ListExchangesScreen
 import br.com.testemercadobitcoin.ui.splash.SplashScreen
+import org.koin.androidx.compose.koinViewModel
 
 object NavRoutes {
     const val SPLASH = "splash"
@@ -27,7 +28,7 @@ fun BitcoinNavigation() {
         }
 
         composable(NavRoutes.LIST_EXCHANGES) {
-            ListExchangesScreen(navController)
+            ListExchangesScreen(navController, viewModel = koinViewModel())
         }
 
         composable(NavRoutes.DETAILS_EXCHANGE) {

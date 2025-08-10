@@ -17,6 +17,10 @@ class ListExchangesViewModel(private val listExchangesUseCase: ListExchangesUseC
     private val _list = MutableLiveData<List<ExchangeItem>>()
     val list: LiveData<List<ExchangeItem>> = _list
 
+    init {
+        getListExchanges()
+    }
+
     fun getListExchanges() {
         _loadingState.value = true
         viewModelScope.launch {
@@ -38,8 +42,6 @@ class ListExchangesViewModel(private val listExchangesUseCase: ListExchangesUseC
             }
         }
     }
-
-
 }
 
 private fun messageErrorGeneric(errorCode: Int?): String {

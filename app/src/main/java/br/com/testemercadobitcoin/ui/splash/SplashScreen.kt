@@ -8,11 +8,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import br.com.testemercadobitcoin.R
 import br.com.testemercadobitcoin.navigation.NavRoutes
 import br.com.testemercadobitcoin.utils.Constants.ANIMATION
+import br.com.testemercadobitcoin.utils.Constants.DESCRIPTION_ANIMATION
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -44,7 +47,8 @@ fun SplashScreen(navController: NavController){
         LottieAnimation(
             composition = animationBitcoin,
             progress = { progressBitcoin },
-            modifier = Modifier.size(200.dp)
+            modifier = Modifier.size(200.dp).semantics { contentDescription = DESCRIPTION_ANIMATION  }
+
         )
     }
 }
