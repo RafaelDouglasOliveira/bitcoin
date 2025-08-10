@@ -8,4 +8,5 @@ object Constants {
     const val DEFAULT_VALUE = "N/A"
     const val FORMAT_DATE_RESPONSE = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS'Z'"
     const val FORMAT_DATE_UI = "dd/MM/yyyy"
+    const val DESCRIPTION_ANIMATION = "Bitcoin"
 }

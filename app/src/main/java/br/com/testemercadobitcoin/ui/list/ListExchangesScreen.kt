@@ -13,7 +13,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -33,26 +32,22 @@ import br.com.testemercadobitcoin.ui.components.LoadingCustom
 import br.com.testemercadobitcoin.ui.list.viewmodel.ListExchangesViewModel
 import br.com.testemercadobitcoin.utils.UtilsColor
 import br.com.testemercadobitcoin.utils.UtilsDimen
-import org.koin.androidx.compose.koinViewModel
 import kotlin.system.exitProcess
 
 @Composable
-fun ListExchangesScreen(navController: NavController) {
+fun ListExchangesScreen(
+    navController: NavController,
+    viewModel: ListExchangesViewModel
+) {
 
     var showExitDialog by remember { mutableStateOf(false) }
 
     BackHandler(enabled = true) {
         showExitDialog = true
     }
-
-    val viewModel: ListExchangesViewModel = koinViewModel()
     val listState = viewModel.list.observeAsState(emptyList())
     val loading = viewModel.loadingState.observeAsState(false)
     val errorState = viewModel.errorState.observeAsState(null)
-
-    LaunchedEffect(Unit) {
-        viewModel.getListExchanges()
-    }
 
     Scaffold(
         containerColor = UtilsColor.white,
